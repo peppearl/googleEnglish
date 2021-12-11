@@ -1,38 +1,34 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+  <div class="GoogleSearch">
+    <div id="searchBar">
+      <div class="search">
+        <div class="icon"></div>
+        <p>Gabrielle Geroudet|</p>
+        <button id="voiceSearchBtn" title="Vocal search"></button>
+      </div>
+      <div class="answer" @click="$emit('scrollto', 'goals')">
+        <div class="icon"></div>
+        <p><span class="bold">Google goals and missions explained by </span> Gabrielle Geroudet</p>
+      </div>
+      <div class="answer" @click="$emit('scrollto', 'hire')">
+        <div class="icon"></div>
+        <p><span class="bold">why should Google hire</span> Gabrielle Geroudet</p>
+      </div>
+      <div class="answer" @click="$emit('scrollto', 'work')">
+        <div class="icon"></div>
+        <p><span class="bold">why does</span> Gabrielle Geroudet <span class="bold">want to work for Google</span></p>
+      </div>
+      <div id="btnSearch">
+        <button>Google Search</button>
+        <button>I'm feeling lucky</button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'GoogleSearch',
   props: {
     msg: String
   }
@@ -41,18 +37,96 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.GoogleSearch {
+  display: flex;
+  justify-content: center;
 }
-ul {
-  list-style-type: none;
+
+.search {
+  display: flex;
+  margin: 10px 5px;
+}
+
+#searchBar {
+  box-shadow: 0 1px 6px 0 rgb(183 183 183);
+  width: 560px;
+  text-align: left;
+  border-radius: 20px;
+}
+
+.icon {
+  -webkit-mask-image: url(../assets/search.svg);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 20px;
+  background-color: rgb(124 127 131);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  height: 24px;
+  width: 24px;
+  padding-left: 10px;
+}
+
+#searchBar p, #icon {
+  margin: auto 0;
+}
+
+#searchBar p {
+  padding-left: 15px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.answer:hover {
+  background: #eee;
+}
+
+.answer {
+  display: flex;
+  padding: 10px 5px;
+}
+
+#btnSearch {
+  text-align: center;
+}
+
+#btnSearch button {
+  background-color: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  border-radius: 4px;
+  color: #3c4043;
+  font-family: arial,sans-serif;
+  font-size: 14px;
+  margin: 11px 4px;
+  padding: 0 16px;
+  line-height: 27px;
+  height: 36px;
+  min-width: 54px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+#btnSearch button:hover {
+  box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+  background-color: #f8f9fa;
+  border: 1px solid #dadce0;
+  color: #202124;
+}
+
+#voiceSearchBtn {
+  background: url(../assets/googlemic.svg) no-repeat center;
+  background-size: 21px 21px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  height: 100%;
+  outline: none;
   padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+  pointer-events: auto;
+  width: 26px;
 }
 </style>
